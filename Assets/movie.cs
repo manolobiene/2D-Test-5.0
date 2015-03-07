@@ -7,7 +7,9 @@ public class movie : MonoBehaviour {
 	void Start () {
 		GetComponent<Renderer> ().material.mainTexture = mov;
 		GetComponent<AudioSource> ().clip = mov.audioClip;
-		mov.Play ();
-		GetComponent<AudioSource> ().Play ();
+		if (!mov.isPlaying) {
+			mov.Play ();
+			GetComponent<AudioSource> ().Play ();
+		}
 	}
 }
